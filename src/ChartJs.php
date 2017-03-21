@@ -97,7 +97,7 @@ class ChartJs extends Widget
             ]
         );
 
-        $js = ";var chartJS_{$id} = new Chart($('#{$id}'),{$config});";
+        $js = ";var chartJS_{$id} = new Chart(document.getElementById('{$id}').getContext('2d'),{$config});";
         $view->registerJs($js);
     }
 
