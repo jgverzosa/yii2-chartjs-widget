@@ -12,8 +12,8 @@
         "role": "Developer"
     }],
     "support": {
-        "issues": "https://github.com/2amigos/yii2-chartjs-widget/issues",
-        "source": "https://github.com/2amigos/yii2-chartjs-widget"
+        "issues": "https://github.com/onixsib/yii2-chartjs-widget/issues",
+        "source": "https://github.com/onixsib/yii2-chartjs-widget"
     },
     "require": {
         "yiisoft/yii2": "*",
