@@ -4,7 +4,7 @@
  * @copyright Copyright (c) 2013-2015 2amigOS! Consulting Group LLC
  * @license http://opensource.org/licenses/BSD-3-Clause
  */
-namespace dosamigos\chartjs;
+namespace onixsib\chartjs;
 
 use yii\web\AssetBundle;
 
@@ -21,7 +21,7 @@ class ChartJsAsset extends AssetBundle
     public $sourcePath = '@bower/chartjs/dist';
 
     public $js = [
-        'Chart.js'
+        'Chart.js',
     ];
 
     public $depends = [

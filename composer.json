@@ -1,5 +1,5 @@
 {
-    "name": "2amigos/yii2-chartjs-widget",
+    "name": "onixsib/yii2-chartjs-widget",
     "description": "ChartJs widget for Yii2.",
     "type": "yii2-extension",
     "keywords": ["2amigos", "yii", "yii2", "yii 2", "extension", "widget", "chartjs"],
@@ -24,7 +24,7 @@
     },
     "autoload": {
         "psr-4": {
-            "dosamigos\\chartjs\\": "src"
+            "onixsib\\chartjs\\": "src"
         }
     },
     "extra": {
