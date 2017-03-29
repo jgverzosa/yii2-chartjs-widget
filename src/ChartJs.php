@@ -9,7 +9,7 @@ namespace onixsib\chartjs;
 use yii\base\InvalidConfigException;
 use yii\base\Widget;
 use yii\helpers\Html;
-use yii\web\JsExpression;
+use yii\helpers\Json;
 
 /**
  *
@@ -86,18 +86,15 @@ class ChartJs extends Widget
     protected function registerClientScript()
     {
         $id   = $this->options['id'];
+        $type = $this->type;
         $view = $this->getView();
         ChartJsAsset::register($view);
 
-        $config = $this->json_encode_advanced(
-            [
-                'type'    => $this->type,
-                'data'    => $this->data ?: new JsExpression('{}'),
-                'options' => $this->clientOptions ?: new JsExpression('{}'),
-            ]
-        );
+        $data    = !empty($this->data) ? Json::encode($this->data) : '{}';
+        $options = !empty($this->clientOptions) ? Json::encode($this->clientOptions) : '{}';
 
-        $js = ";var chartJS_{$id} = new Chart(document.getElementById('{$id}').getContext('2d'),{$config});";
+        $js = ";var chartJS_{$id} = new Chart(document.getElementById('{$id}').getContext('2d'), {'type': '{$type}', 'data': {$data}, 'options': {$options}});";
+//        $js = ";var chartJS_{$id} = new Chart(document.getElementById('{$id}').getContext('2d'),$config);";
         $view->registerJs($js);
     }
 
@@ -109,7 +106,7 @@ class ChartJs extends Widget
         foreach ($arr as $key => $value) {
 
             if ($this->isAssoc($arr) || (!$this->isAssoc($arr) && $sequential_keys == true)) {
-                $output .= ($quotes ? '"' : '') . $key . ($quotes ? '"' : '') . ' : ';
+                $output .= ($quotes ? '"' : '') . $key . ($quotes ? '"' : '') . ': ';
             }
 
             if (is_array($value)) {
